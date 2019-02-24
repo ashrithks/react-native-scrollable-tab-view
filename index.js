@@ -45,6 +45,7 @@ const ScrollableTabView = createReactClass({
     prerenderingSiblingsNumber: PropTypes.number,
     collapsableBar: PropTypes.node,
     scrollEnabled: PropTypes.bool,
+    showsVerticalScrollIndicator: PropTypes.bool,
   },
 
   getDefaultProps() {
@@ -402,6 +403,7 @@ const ScrollableTabView = createReactClass({
       onLayout={this._handleLayout} 
       stickyHeaderIndices={[1]}
       scrollEnabled={this.props.scrollEnabled}
+      showsVerticalScrollIndicator={this.props.showsVerticalScrollIndicator}
       >
       {this.renderCollapsableBar()}
       {this.props.tabBarPosition === 'top' && this.renderTabBar(tabBarProps)}
