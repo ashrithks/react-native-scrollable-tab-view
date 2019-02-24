@@ -102,6 +102,8 @@ export interface ScrollableTabViewProperties extends React.Props<ScrollableTabVi
     prerenderingSiblingsNumber?: number;
 
     collapsableBar?: JSX.Element;
+
+    scrollEnabled?: boolean;
 }
 
 export type TabBarProps<T = {}> = T & {
