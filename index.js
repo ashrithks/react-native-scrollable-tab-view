@@ -397,7 +397,7 @@ const ScrollableTabView = createReactClass({
     }
 
     const ContainerView = this.props.collapsableBar ? ScrollView : View
-
+if (this.props.collapsableBar) {
     return <ContainerView
       style={[styles.container, this.props.style, ]} 
       onLayout={this._handleLayout} 
@@ -409,7 +409,22 @@ const ScrollableTabView = createReactClass({
       {this.props.tabBarPosition === 'top' && this.renderTabBar(tabBarProps)}
       {this.renderScrollableContent()}
       {(this.props.tabBarPosition === 'bottom' || overlayTabs) && this.renderTabBar(tabBarProps)}
-    </ContainerView>;
+    </ContainerView>
+}else{
+ return <ContainerView
+      style={[styles.container, this.props.style, ]}
+      contentContainerStyle={{ flex: 1 }}
+      onLayout={this._handleLayout} 
+      stickyHeaderIndices={[1]}
+      scrollEnabled={this.props.scrollEnabled}
+      showsVerticalScrollIndicator={this.props.showsVerticalScrollIndicator}
+      >
+      {this.renderCollapsableBar()}
+      {this.props.tabBarPosition === 'top' && this.renderTabBar(tabBarProps)}
+      {this.renderScrollableContent()}
+      {(this.props.tabBarPosition === 'bottom' || overlayTabs) && this.renderTabBar(tabBarProps)}
+    </ContainerView>
+}
   },
 });
 
