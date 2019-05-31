@@ -400,6 +400,7 @@ const ScrollableTabView = createReactClass({
 if (this.props.collapsableBar) {
     return <ContainerView
       style={[styles.container, this.props.style, ]} 
+      contentContainerStyle={{ flex: 1 }}
       onLayout={this._handleLayout} 
       stickyHeaderIndices={[1]}
       scrollEnabled={this.props.scrollEnabled}
@@ -413,7 +414,6 @@ if (this.props.collapsableBar) {
 }else{
  return <ContainerView
       style={[styles.container, this.props.style, ]}
-      contentContainerStyle={{ flex: 1 }}
       onLayout={this._handleLayout} 
       stickyHeaderIndices={[1]}
       scrollEnabled={this.props.scrollEnabled}
